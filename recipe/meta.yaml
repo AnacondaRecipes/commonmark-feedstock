@@ -19,7 +19,7 @@ build:
     - cmark = CommonMark.cmark:main
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
 
