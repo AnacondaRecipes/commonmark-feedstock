@@ -1,15 +1,12 @@
-{% set name = "CommonMark" %}
-{% set version = "0.7.5" %}
-{% set sha256 = "4dfbbd1dbc669a9b71a015032b2bbe5c4b019ca8b6ca410d89cf7020de46d2c0" %}
+{% set version = "0.8.0" %}
 
 package:
-  name: {{ name | lower }}
+  name: commonmark
   version: {{ version }}
 
 source:
-  fn:  {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/C/Commonmark/commonmark-{{ version }}.tar.gz
+  sha256: 96a35cbc43a0e358355729f1e6ff4c1c3eb367b89c3db3d60dc631d47ec40ccf
 
 build:
   number: 0
