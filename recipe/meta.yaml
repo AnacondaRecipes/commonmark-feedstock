@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: commonmark
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/C/Commonmark/commonmark-{{ version }}.tar.gz
-  sha256: 96a35cbc43a0e358355729f1e6ff4c1c3eb367b89c3db3d60dc631d47ec40ccf
+  sha256: abcbc854e0eae5deaf52ae5e328501b78b4a0758bf98ac8bb792fce993006084
 
 build:
   number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
   entry_points:
-    - cmark = CommonMark.cmark:main
+    - cmark = commonmark.cmark:main
 
 requirements:
   host:
@@ -28,18 +28,18 @@ test:
     - spec.txt
 
   imports:
-    - CommonMark
-    - CommonMark.render
-    - CommonMark.tests
+    - commonmark
+    - commonmark.render
+    - commonmark.tests
 
   requires:
     - flake8
     - hypothesis
 
   commands:
-    - python -m CommonMark.tests.unit_tests
+    - python -m commonmark.tests.unit_tests
     # Fails on windows due to some encoding issue
-    - python -m CommonMark.tests.run_spec_tests  # [not win]
+    - python -m commonmark.tests.run_spec_tests  # [not win and not ppc64le]
     - cmark --help
 
 about:
