@@ -34,7 +34,7 @@ test:
     - cmark --help
 
 about:
-  home: http://commonmark.org/
+  home: https://commonmark.org/
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
