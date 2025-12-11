@@ -30,7 +30,8 @@ test:
     - flake8
     - hypothesis
   commands:
-     - cmark --help
+    - pip check
+    - cmark --help
 
 about:
   home: http://commonmark.org/
