@@ -34,11 +34,11 @@ test:
     - cmark --help
 
 about:
-  home: https://commonmark.org/
+  home: https://commonmark.org
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
-  summary: 'Python parser for the CommonMark Markdown spec'
+  summary: Python parser for the CommonMark Markdown spec
   description: |
     CommonMark-py is a pure Python port of jgm's commonmark.js, a Markdown
     parser and renderer for the CommonMark specification, using only native
