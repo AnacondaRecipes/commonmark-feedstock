@@ -31,6 +31,7 @@ test:
     - flake8
     - hypothesis
   commands:
+    - python -c "from importlib.metadata import version; assert(version('commonmark')=='{{ version }}')"
     - pip check
     - cmark --help
 
