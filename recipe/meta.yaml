@@ -1,11 +1,12 @@
+{% set name = "Commonmark" %}
 {% set version = "0.9.1" %}
 
 package:
-  name: commonmark
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/C/Commonmark/commonmark-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|lower }}-{{ version }}.tar.gz
   sha256: 452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60
 
 build:
@@ -31,7 +32,7 @@ test:
     - flake8
     - hypothesis
   commands:
-    - python -c "from importlib.metadata import version; assert(version('commonmark')=='{{ version }}')"
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - pip check
     - cmark --help
 
