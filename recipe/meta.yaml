@@ -27,6 +27,7 @@ test:
     - commonmark.render
     - commonmark.tests
   requires:
+    - pip
     - flake8
     - hypothesis
   commands:
