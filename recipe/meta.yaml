@@ -38,7 +38,7 @@ test:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - pip check
     - cmark --help
-    - pytest -vv commonmark/tests/*
+    - pytest -vvv commonmark/tests/unit_tests.py commonmark/tests/rst_tests.py
 
 about:
   home: https://commonmark.org
