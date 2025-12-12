@@ -23,6 +23,8 @@ requirements:
     - python
 
 test:
+  source_files:
+    - commonmark/tests
   imports:
     - commonmark
     - commonmark.render
@@ -31,10 +33,12 @@ test:
     - pip
     - flake8
     - hypothesis
+    - pytest
   commands:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - pip check
     - cmark --help
+    - pytest -vv commonmark/tests/*
 
 about:
   home: https://commonmark.org
