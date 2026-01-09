@@ -10,7 +10,7 @@ source:
   sha256: 452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   entry_points:
     - cmark = commonmark.cmark:main
@@ -19,26 +19,26 @@ requirements:
   host:
     - python
     - pip
+    - wheel
+    - setuptools
   run:
     - python
 
 test:
-  source_files:
-    - commonmark/tests
   imports:
     - commonmark
     - commonmark.render
     - commonmark.tests
-  requires:
-    - pip
-    - flake8
-    - hypothesis
-    - pytest
   commands:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - pip check
     - cmark --help
-    - pytest -vvv commonmark/tests/unit_tests.py commonmark/tests/rst_tests.py
+    - pytest --pyargs commonmark.tests.rst_tests commonmark.tests.run_spec_tests commonmark.tests.unit_tests
+  requires:
+    - pip
+    - pytest
+    - flake8 >=3.7.8
+    - hypothesis >=3.55.3
 
 about:
   home: https://commonmark.org
